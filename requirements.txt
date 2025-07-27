@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+faiss-cpu
+sentence-transformers
+langchain
+langchain-community
+beautifulsoup4
+google-generativeai
+requests
