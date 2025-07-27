@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "http://localhost:8000/ask"
+API_URL = "https://aerobot-backend.onrender.com"
 
 st.set_page_config(page_title="AeroBot", layout="centered")
 st.title("AeroBot: Your Travel Companion")
