@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = ""
+API_URL = "https://aerobot-vks8.onrender.com/ask"
 
 st.set_page_config(page_title="AeroBot", layout="centered")
 st.title("AeroBot: Your Travel Companion")
@@ -16,18 +16,15 @@ for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
-# -------------------------
-# User Input
-# -------------------------
-user_input = st.chat_input("Ask something about Changi or Jewel Changi...")
+user_input = st.chat_input("Ask something about Changi or Jewel Changi Airport...")
 
 if user_input:
-    # Add user message
+    
     st.session_state.messages.append({"role": "user", "content": user_input})
     with st.chat_message("user"):
         st.markdown(user_input)
 
-    # Get response from API
+    
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             try:
