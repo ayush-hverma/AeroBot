@@ -3,7 +3,7 @@ from pydantic import BaseModel
 import uvicorn
 from fastapi import Request
 from fastapi.middleware.cors import CORSMiddleware
-from .rag_chain import query_rag
+from rag_chain import query_rag
 
 app = FastAPI()
 
