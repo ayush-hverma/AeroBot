@@ -1,23 +1,17 @@
 import streamlit as st
 import requests
 
-API_URL = "https://aerobot-backend.onrender.com"
+API_URL = ""
 
 st.set_page_config(page_title="AeroBot", layout="centered")
 st.title("AeroBot: Your Travel Companion")
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# -------------------------
-# New Chat Button
-# -------------------------
 if st.button("➕ New Chat"):
     st.session_state.messages = []
     st.experimental_rerun()
 
-# -------------------------
-# Show Chat History
-# -------------------------
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])

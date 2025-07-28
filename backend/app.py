@@ -1,9 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-import uvicorn
-from fastapi import Request
 from fastapi.middleware.cors import CORSMiddleware
-from rag_chain import query_rag
+import uvicorn
 
 app = FastAPI()
 
@@ -14,20 +12,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/ask")
-async def ask(req: Request):
-    body = await req.json()
-    question = body.get("question")
-    answer = query_rag(question)
-    return {"answer": answer}
-
-app = FastAPI()
-
 class Query(BaseModel):
     question: str
 
 @app.post("/ask")
 def ask_question(query: Query):
+    
+    from rag_chain import query_rag  
     answer = query_rag(query.question)
     return {"answer": answer}
 
