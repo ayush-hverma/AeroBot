@@ -1,4 +1,2 @@
 .env
-faiss_index/
-data/
 backend/__pycache__/
