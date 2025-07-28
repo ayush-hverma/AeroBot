@@ -29,6 +29,8 @@ if user_input:
         with st.spinner("Thinking..."):
             try:
                 response = requests.post(API_URL, json={"question": user_input})
+                print("Time taken:", response.elapsed.total_seconds(), "seconds")
+                print("Raw Response:", response.text)
                 answer = response.json().get("answer", "Sorry, something went wrong.")
             except Exception as e:
                 answer = f"Error: {e}"
